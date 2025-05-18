@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placement Package Predictor</title>
+</head>
+<body style="text-align:center; padding-top:40px;">
+    <h1>🎓 Placement Package Predictor</h1>
+    <form method="POST" action="/predict">
+        <label>Enter your CGPA:</label><br><br>
+        <input type="number" name="cgpa" step="0.01" min="0" max="10" required><br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>For CGPA {{ cgpa }}, predicted package is <span style="color:green;">{{ prediction }} LPA</span></h2>
+    {% endif %}
+
+    {% if error %}
+        <h3 style="color:red;">Error: {{ error }}</h3>
+    {% endif %}
+</body>
+</html>
